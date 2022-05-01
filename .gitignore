@@ -1,0 +1,16 @@
+/menv/
+/db.sqlite3
+/lms/settings.py
+*.pyc
+*.pdf
+*.jpeg
+/*.log
+/*.pyc
+.venv
+.env
+*.pyc
+*.idea
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
+__pycache__/*

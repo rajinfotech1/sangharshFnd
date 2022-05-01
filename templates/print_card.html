@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    {% comment %} <script type="text/javascript">
+        function generateBarCode(text)
+        {
+            var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + text + '&amp;size=50x50';
+            $('#barcode').attr('src', url);
+        }
+    </script> {% endcomment %}
+
+</head>
+<body onload="generateBarCode('{{qr_text}}')" >
+    <div class="container1">
+        <img src="{% static 'img/bg.jpg' %}" alt="bg" style="width:100%;">
+        <div class="imgp"><img src="{{data.profile.url}}" alt="img" style="width:60px; hieght:65px;"></div>
+        <div class="name-h">{{data.name}}</div>
+        <div class="a-l">{{uid}}</div>
+        {% comment %} <div class="dob">जन्म तिथि/ DOB: {{data.date_of_birth|date:'d/m/Y'}}</div> {% endcomment %}
+        <div class="a-e">{{data.address}}</div>
+        {% comment %} <div class="b-c">
+            <img id='barcode' 
+            src="#" 
+            alt=""  
+            width="90" 
+            height="90"
+            onload="window.print();" 
+            />
+        </div> {% endcomment %}
+    </div>
+    <div class="text-muted" style='overflow: hidden; position: fixed; bottom: 0; width: 100%; font-size:8px;'>
+        Fack Adhar Downloaded from Raj Infotech Printing Service
+    </div>
+</body>
+</html> 
