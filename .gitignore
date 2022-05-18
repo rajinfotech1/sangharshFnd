@@ -3,6 +3,7 @@
 /lms/settings.py
 *.pyc
 *.pdf
+*/profile/*
 *.jpeg
 /*.log
 /*.pyc

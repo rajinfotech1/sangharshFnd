@@ -1,6 +1,6 @@
 import unicodedata
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
 from .models import CustomUser
 
@@ -24,13 +24,31 @@ class emailField(forms.EmailField):
             "autocomplete": "email",
         }
 
+
+# update user form through admin
+class UpdateUserFormAdmin(UserChangeForm):
+
+	class Meta:
+		model = CustomUser
+		fields = ("name", "blood_group", "father_name", "mobile_nomber", "alternet_mobile_nomber", "profile", "staff")
+
+
+
+# # update user form through member
+class UpdateProfileForm(UserChangeForm):
+
+	class Meta:
+		model = CustomUser
+		fields = ("name", "blood_group", "father_name", "mobile_nomber", "alternet_mobile_nomber", "profile")
+
+
 # new user create form
 class NewUserForm(UserCreationForm):
 	email = forms.EmailField(required=True)
 
 	class Meta:
 		model = CustomUser
-		fields = ("email", "name", "blood_group", "father_name", "mobile_nomber", "alternet_mobile_nomber", "profile", "is_member", "staff", "address", "password1", "password2")
+		fields = ("email", "name", "blood_group", "father_name", "mobile_nomber", "alternet_mobile_nomber", "profile", "address", "password1", "password2")
 
 	# def save(self, commit=True):
 	# 	user = super(NewUserForm, self).save(commit=False)

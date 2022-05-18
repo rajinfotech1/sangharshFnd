@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "user/base.html" %}
 {% load widget_tweaks %}
 {% block content %}
 
@@ -21,7 +21,7 @@
             {% endfor %}
         <button class="btn btn-primary mx-5 mt-3" type="submit">Login</button>
       </form>
-    
+      <a href="{% url 'register' %}" type="btn">Register here</a>  
 
 	</div>
 
