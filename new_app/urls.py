@@ -12,5 +12,10 @@ urlpatterns = [
     path('logout/', views.logout_request, name="logout"),
     path('view_card/<int:id>/', views.view_card, name="print"),
     path('delete_user/<int:id>/', views.delete_user, name="delete_user"),
+    path('update_user/<int:id>/', views.update_user_admin, name="update_user"),
+    path('dashbord/', views.dashbord, name="dashbord"),
+    path('ajax/', views.ajax_fun, name="ajax"),
+    path('profile/', views.profile, name="profile"),
+    
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

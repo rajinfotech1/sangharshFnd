@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base-new.html" %}
 {% load widget_tweaks %}
 {% block content %}
 
@@ -11,7 +11,7 @@
             <div class="row">
                 <!-- {{ form }} -->
                 {% for field in form.visible_fields %}
-                <div class="col-10">
+                <div class="col-8">
                     <div class="form-group">
                         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                         {% render_field field class="form-control" %}

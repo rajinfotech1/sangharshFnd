@@ -1,0 +1,188 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Sangharsh Foundation Society ( Non Profit Organization )</title>
+    <!--  Bootstrap Style -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
+    <!--  Font-Awesome Style -->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+    <!--  Pretty Photo Style -->
+    <link href="{% static 'css/prettyPhoto.css' %}" rel="stylesheet" />
+    <!--  Google Font Style -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Nova+Flat' rel='stylesheet' type='text/css' />
+    <!--  Custom Style -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+
+    {% block cssblock %}{% endblock cssblock %}
+</head>
+<body>
+    
+    <div id="home" class="navbar navbar-default move-me ">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="{% url 'index' %}">
+                    <img src=" {% static 'img/s-logo.png' %}" class="navbar-brand-logo " alt=""></a>
+            </div>
+            <div class="navbar-collapse collapse ">
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li class="dropdown">
+                        <a href="{% url 'dashbord' %}"> <i class="fa fa-home"></i> Dashbord</a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="{% url 'register' %}"> <i class="fa fa-plus"></i> Register Member</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="{% url 'view_members' %}#about"><i class="fa fa-users"></i> View Members</a>
+                    </li>
+
+
+                    <li class="dropdown">
+                        <a href="{% url 'profile' %}"><i class="fa fa-heart"></i> Profile</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        {% if request.user.is_authenticated %}
+                        <a href="{% url 'logout' %}"><i class="fa fa-user"></i> {{request.user.name}}
+                            <span>Logout</span>
+                        </a>
+                        {% else %}
+                        <a href="{% url 'login' %}"><i class="fa fa-user"></i> Login 
+                            <span> </span>
+                        </a>
+                        {% endif %}
+
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <!--./ NAV BAR END -->
+    <div class="header-sec-bar" >
+        <span>
+            <i class="fa fa-envelope-o "></i>sangharshfoundation@gmail.com 
+            <i class="fa fa-phone "></i>+91-8120914673
+
+        </span>
+
+    </div>
+    <!--./ HEADER SECTION BAR END -->
+    <div id="main-head">
+
+        <div class="container">
+            {% block content %}{% endblock content %}
+        </div>
+    </div>
+    <!--./ MAIN HEADER SECTION END -->
+    
+    <div id="footer-sec">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4" id="about-ftr">
+                    <h3><span>A Small Introduction</span></h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                             Praesent suscipit sem vel ipsum elementum venenatis. 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                             Praesent suscipit sem vel ipsum elementum venenatis.
+                      Praesent suscipit sem vel ipsum elementum venenatis.
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h3><span>Latest Donations</span></h3>
+                    <div id="blog-footer-div">
+                        <div class="media">
+                            <div class="pull-left">
+                                <img src=" img/user2.png" class="img-thumbnail" alt="">
+                            </div>
+                            <div class="media-body">
+                                <span class="media-heading">JHON DEO TEAMA</span>
+                                <small class="muted">$ 5000 in Cash</small>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="pull-left">
+                                <img src=" img/user.gif" class="img-thumbnail" alt="">
+                            </div>
+                            <div class="media-body">
+                                <span class="media-heading">JUSTIN DECOSTA</span>
+                                <small class="muted">$ 4000 by Cheque</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4">
+                    <h3><span>Quick Donation</span></h3>
+                    <div>
+                        234/90, Newyork Street , USA
+                    <br />
+                        Call: +61-123-456-789
+                        <br />
+                        E-mail: support@yourdomin.com
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-style-2 ">DONATE FOR A CHILD</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footser-end">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    2022 All Rights Reserved |  by <a href="http://www.sangharshfoundationws.wordpress.com/" target="_blank" style="color: #fff"> www.sangharshfoundationws.com</a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--./ footer-end End -->
+      <div class="move-me">
+
+      
+    <a href="#home" class="scrollup"><i class="fa fa-chevron-up"></i></a>
+          </div>
+     <!--END SCROLLUP LINK SECTION-->
+    
+    <!--  Jquery Core Script -->
+    <script src="{% static 'js/jquery-1.10.2.js' %}"></script>
+    <!--  Core Bootstrap Script -->
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <!--  Scrolling Script -->
+    <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+    <!--  PrettyPhoto Script -->
+    <script src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
+    <!--  knob Scripts -->
+    <script src="{% static 'js/jquery.knob.js' %}"></script>
+     <!--  SCROLL REVEAL Scripts -->
+    <script src="{% static 'js/scrollReveal.js' %}"></script>
+    <!--  Custom Scripts -->
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script>
+      
+    </script>
+    {% block scriptblock %}{% endblock scriptblock %}
+</body>
+</html>

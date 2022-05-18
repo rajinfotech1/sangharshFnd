@@ -1,4 +1,6 @@
+import email
 from email.mime import image
+from unicodedata import name
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 
@@ -84,3 +86,15 @@ class CustomUser(AbstractBaseUser):
         return self.admin
     
     
+    
+# contact model
+class Contact(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField()
+    message = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ['-created_on']
+        
+        

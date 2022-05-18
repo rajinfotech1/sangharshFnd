@@ -18,10 +18,9 @@
 </head>
 <body onload="generateBarCode('{{qr_text}}')" >
     <div class="container1">
-        <img src="{% static 'img/bg.jpg' %}" alt="bg" style="width:100%;">
+        <img src="{% static "card/id-cart-blank.jpg" %}" alt="bg" style="width:100%;">
         <div class="imgp"><img src="{{data.profile.url}}" alt="img" style="width:60px; hieght:65px;"></div>
         <div class="name-h">{{data.name}}</div>
-        <div class="a-l">{{uid}}</div>
         {% comment %} <div class="dob">जन्म तिथि/ DOB: {{data.date_of_birth|date:'d/m/Y'}}</div> {% endcomment %}
         <div class="a-e">{{data.address}}</div>
         {% comment %} <div class="b-c">
